@@ -8,6 +8,7 @@ use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\DivisiController;
 use App\Http\Controllers\JabatanController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,6 +21,7 @@ use App\Http\Controllers\JabatanController;
 */
 
 Route::get('/', function () {
+    Alert::success('Selamat Datang');
     return view('welcome');
 });
 Route::get ('/salam', function(){
@@ -50,6 +52,10 @@ Route::get('/pegawai/edit/{id}', [PegawaiController::class, 'edit']);
 Route::post('/pegawai/update', [PegawaiController::class, 'update']);
 Route::get('/pegawai/show/{id}', [PegawaiController::class, 'show']);
 Route::get('/pegawai/delete/{id}', [PegawaiController::class, 'destroy']);
+Route::get('generate-pdf', [PegawaiController::class, 'generatePDF']);
+Route::get('/pegawai/pegawaiPDF', [PegawaiController::class, 'pegawaiPDF']);
+Route::get('/pegawai/exportexcel/', [PegawaiController::class, 'exportExcel']);
+Route::post('/pegawai/importexcel', [PegawaiController::class, 'importExcel']);
 
 
 //ini adalah route untuk divisi
@@ -66,8 +72,9 @@ Route::get('/divisi/delete/{id}', [DivisiController::class, 'destroy']);
 Route::get('/jabatan', [JabatanController::class, 'index']);
 Route::get('/jabatan/create', [JabatanController::class, 'create']);
 Route::post('/jabatan/store', [JabatanController::class, 'store']);
-Route::get('/jabatan/store', [JabatanController::class, 'edit']);
-Route::post('/jabatan/store', [JabatanController::class, 'update']);
+Route::get('/jabatan/edit/{id}', [JabatanController::class, 'edit']);
+Route::post('/jabatan/update', [JabatanController::class, 'update']);
+
 
 //ini adalah routing untuk dashboard
 
