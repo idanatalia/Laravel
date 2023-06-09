@@ -6,11 +6,11 @@
 <br>
 <br>
 @foreach($jabatan as $j)
-<form method="POST" action="{{url('admin/divisi/update/')}}" enctype="multipart/form-data">
+<form method="POST" action="{{url('admin/jabatan/update/')}}" enctype="multipart/form-data">
     {{csrf_field() }}
   <div class="form-group row">
-    <input type="hidden" name="id" value="{{$d->id}}" /><br>
-    <label for="text" class="col-4 col-form-label" >{{$d->nama}}</label> 
+    <input type="hidden" name="id" value="{{$j->id}}" /><br>
+    <label for="text" class="col-4 col-form-label" >{{$j->nama}}</label> 
     <div class="col-8">
       <div class="input-group">
         <div class="input-group-prepend">
@@ -18,7 +18,7 @@
             <i class="fa fa-address-card"></i>
           </div>
         </div> 
-        <input id="text" name="nama" type="text" class="form-control" value="{{$d->nama}}">
+        <input id="text" name="nama" type="text" class="form-control" value="{{$j->nama}}">
       </div>
     </div>
   </div> 
